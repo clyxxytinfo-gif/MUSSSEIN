@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Veranstaltungen — Fiktive Stadt</title>
+  <meta name="description" content="Veranstaltungskalender und Highlights der fiktiven Stadt.">
+  <link rel="icon" href="Assets/Images/logo.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+  <img src="Assets/Images/logo.svg" class="site-logo" alt="Logo">
+  <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Menü öffnen">☰</button>
+
+  <div class="sidebar" id="sidebar" aria-hidden="true">
+    <button class="sidebar-close" id="sidebar-close" aria-label="Menü schließen">✕</button>
+    <ul>
+        <li><a href="#">Schule/Leitung</a>
+            <ul>
+                <li><a href="pages/schulleitung.html">Schulleiter</a></li>
+                <li><a href="pages/schulgebäude.html">Schulgebäude</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Politik</a>
+            <ul>
+                <li><a href="pages/schulrat.html">Schulrat</a></li>
+            </ul>
+        </li>
+        <li><a href="pages/daten.html">Daten über die Schule</a></li>
+        <li><a href="#">Bauen und Wohnen</a></li>
+        <li><a href="pages/galerie.html">Galerie</a></li>
+        <li><a href="#">Tourismus</a></li>
+        <li><a href="#">Mobilität</a></li>
+        <li><a href="pages/dienstleistungen.html">Dienstleistungen von A–Z</a></li>
+        <li><a href="pages/veranstaltungen.html">Veranstaltungen</a></li>
+        <li><a href="pages/kultur.html">Schulleben und Kultur</a></li>
+        <li><a href="pages/karriere.html">Karriere</a></li>
+    </ul>
+  </div>
+
+    <main id="main" class="main-content container" role="main">
+      <h2>Veranstaltungen</h2>
+      <div class="card-grid">
+        <article class="card" id="fruehlingsfest">
+          <h4>Frühlingsfest</h4>
+          <time datetime="2026-04-17">2026-04-17</time>
+          <p>Musik, Essen und Aktivitäten für Kinder auf dem Marktplatz.</p>
+        </article>
+        <article class="card" id="kunstmarkt">
+          <h4>Kunstmarkt</h4>
+          <time datetime="2026-05-08">2026-05-08</time>
+          <p>Lokale Künstler stellen ihre Werke aus.</p>
+        </article>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

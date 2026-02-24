@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Galerie & Karte — Fiktive Stadt</title>
+  <meta name="description" content="Interaktive Galerie und Karte der fiktiven Stadt mit Game-Elementen.">
+  <link rel="icon" href="../Assets/Images/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-sA+4g6kGQ6k7Y2g9w4h0gqkFQxjvF7ZxTt2fT0w5r3s=" crossorigin />
+</head>
+<body>
+  <a class="skip-link" href="#main">Zum Hauptinhalt springen</a>
+  
+  <header class="site-header">
+    <img src="../Assets/Images/logo.svg" class="site-logo" alt="Fiktive Stadt Logo" width="48" height="48">
+    <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Navigation öffnen" aria-expanded="false">☰</button>
+  </header>
+
+  <nav class="sidebar" id="sidebar" aria-hidden="true" aria-label="Hauptnavigation">
+    <button class="sidebar-close" id="sidebar-close" aria-label="Navigation schließen">✕</button>
+    <ul>
+      <li><details><summary>Schule/Leitung</summary><ul><li><a href="schulleitung.html">Schulleiter</a></li><li><a href="schulgebäude.html">Schulgebäude</a></li></ul></details></li>
+      <li><details><summary>Politik</summary><ul><li><a href="schulrat.html">Schulrat</a></li></ul></details></li>
+      <li><a href="daten.html">Daten über die Schule</a></li>
+      <li><a href="#">Bauen und Wohnen</a></li>
+      <li><a href="galerie.html" aria-current="page">Galerie</a></li>
+      <li><a href="#">Tourismus</a></li>
+      <li><a href="#">Mobilität</a></li>
+      <li><a href="dienstleistungen.html">Dienstleistungen von A–Z</a></li>
+      <li><a href="veranstaltungen.html">Veranstaltungen</a></li>
+      <li><a href="kultur.html">Schulleben und Kultur</a></li>
+      <li><a href="karriere.html">Karriere</a></li>
+    </ul>
+  </nav>
+
+  <main id="main" class="main-content container" role="main">
+    <header>
+      <h1>Galerie & interaktive Karte</h1>
+      <p>🔍 Sammle Punkte durch Erkunden! Klick auf Bilder & Marker → Score + Lightbox</p>
+    </header>
+
+    <!-- 🗺️ INTERAKTIVE KARTE -->
+    <section class="map-section" aria-labelledby="map-heading">
+      <h2 id="map-heading">Standorte der fiktiven Stadt</h2>
+      <div id="map" class="map-container" role="region" aria-label="Interaktive Karte" tabindex="-1"></div>
+    </section>
+
+    <!-- 🖼️ GEILE GALERIE-GAME -->
+    <section class="gallery-section" aria-labelledby="gallery-heading">
+      <h2 id="gallery-heading">Fotogalerie (Punkte sammeln!)</h2>
+      <div class="gallery-grid" role="list">
+        <figure class="gallery-item" role="listitem" data-title="Schulgebäude" data-fullimg="Assets/Images/2026-02-22_12.05.50.png">
+          <img src="Assets/Images/thumb.svg" alt="Schulgebäude bei Sonnenuntergang" loading="lazy" width="400" height="300">
+          <figcaption>Schulgebäude</figcaption>
+        </figure>
+        <figure class="gallery-item" role="listitem" data-title="Schulhof" data-fullimg="Assets/Images/2026-02-22_12.05.50.png">
+          <img src="Assets/Images/thumb.svg" alt="Schulhof mit Kindern" loading="lazy" width="400" height="300">
+          <figcaption>Schulhof</figcaption>
+        </figure>
+        <figure class="gallery-item" role="listitem" data-title="Klassenzimmer" data-fullimg="Assets/Images/2026-02-22_12.05.50.png">
+          <img src="Assets/Images/2026-02-22_12.05.50.png" alt="Klassenzimmer mit Schülern" loading="lazy" width="400" height="300">
+          <figcaption>Klassenzimmer</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 🔍 SEARCH -->
+    <section class="search-section">
+      <input type="search" id="searchInput" placeholder="Suche in Karten & Galerie...">
+    </section>
+
+    <!-- 💫 GEILE LIGHTBOX -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+      <button class="lightbox-close" aria-label="Lightbox schließen">✕</button>
+      <button class="lightbox-prev" aria-label="Vorheriges Bild">❮</button>
+      <button class="lightbox-next" aria-label="Nächstes Bild">❯</button>
+      <img class="lightbox-img" src="" alt="" aria-hidden="true">
+      <div class="lightbox-title"></div>
+      <div class="lightbox-counter"></div>
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-o9N1j8wF4g1sVbF7m1K/0rM6Qe3z4G6g9q2G6zYkL2o=" crossorigin="" defer></script>
+  <script src="../js/main.js" defer></script>
+</body>
+</html>

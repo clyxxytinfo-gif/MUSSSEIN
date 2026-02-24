@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Fiktive Stadt — Startseite</title>
+    <link rel="icon" href="Assets/Images/ChatGPT Image 23. Feb. 2026, 16_49_13.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+
+    <a href="index.html"><img src="Assets/Images/logo.png" class="site-logo" alt="Logo"></a>
+    <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Menü öffnen">☰</button>
+
+    <div class="sidebar" id="sidebar" aria-hidden="true">
+      <ul>
+          <li><a href="#">Stadt/Verwaltung</a>
+            <ul>
+              <li><a href="dienstleistungen.html">Dienstleistungen von A-Z</a></li>
+              <li><a href="bauen_wohnen.html">Bauen und wohnen</a></li>
+           </ul>
+          </li>
+         <li><a href="#">Politik</a>
+            <ul>
+             <li><a href="pages/schulrat.html">Schulrat</a></li>
+            </ul>
+          </li>
+          <li><a href="pages/daten.html">Daten über die Schule</a></li>
+          <li><a href="#">Bauen und Wohnen</a></li>
+          <li><a href="gallery.html">Galerie</a></li>
+          <li><a href="#">Tourismus</a></li>
+          <li><a href="#">Mobilität</a></li>
+          <li><a href="pages/veranstaltungen.html">Veranstaltungen</a></li>
+     </ul>
+    </div>
+
+    <main id="main" class="main-content" role="main">
+      <section id="home" class="hero">
+        <div class="hero-overlay">
+          <h1>Willkommen in Bayville</h1>
+          <form class="hero-search" role="search" onsubmit="return false">
+            <input id="searchInput" placeholder="Ihr Suchbegriff ..." aria-label="Suche">
+            <button>🔍</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- Events als separater Abschnitt (kein Overlap mehr) -->
+      <section class="container events-section">
+        <h3>Veranstaltungen / Highlights</h3>
+        <div class="events-grid">
+          <div class="events-item">
+            <div class="thumb">
+              <img src="Assets/Images/2026-02-21_15.19.19.png" alt="Veranstaltung 1">
+            </div>
+            <div class="detail">
+              <h4>Veranstaltung 1</h4>
+              <p>Kurztext, Datum und Ort.</p>
+            </div>
+          </div>
+          <div class="events-item">
+            <div class="thumb"></div>
+            <div class="detail">
+              <h4>Veranstaltung 2</h4>
+              <p>Kurztext, Datum und Ort.</p>
+            </div>
+          </div>
+          <div class="events-item">
+            <div class="thumb"></div>
+            <div class="detail">
+              <h4>Veranstaltung 3</h4>
+              <p>Kurztext, Datum und Ort.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="container">
+        <h3>Über die Stadt</h3>
+        <p>Platzhaltertext: Erzähl etwas über Geschichte, Einwohner oder Besonderheiten.</p>
+      </section>
+
+      <section id="news" class="container">
+        <h3>Aktuelles</h3>
+        <div class="card-grid" id="newsList">
+          <article class="card">
+            <h4>Nachricht 1</h4>
+            <p>Kurzinfo zur ersten Nachricht.</p>
+          </article>
+          <article class="card">
+            <h4>Nachricht 2</h4>
+            <p>Kurzinfo zur zweiten Nachricht.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="gallery" class="container">
+        <h3>Karte / Galerie</h3>
+        <p>Platzhalter für eine interaktive Karte oder Bildergalerie.</p>
+      </section>
+
+      <section id="contact" class="container">
+        <h3>Kontakt</h3>
+        <form id="contactForm">
+          <label for="name">Name</label>
+          <input id="name" name="name" required>
+          <label for="email">E‑Mail</label>
+          <input id="email" name="email" type="email" required>
+          <label for="message">Nachricht</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+          <button type="submit">Absenden</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© Fiktive Stadt — Demo 2026</p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
+3

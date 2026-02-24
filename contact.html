@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="de">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kontakt — Fiktive Stadt</title>
+  <meta name="description" content="Kontaktformular und Ansprechpartner der fiktiven Stadt.">
+  <link rel="icon" href="Assets/Images/logo.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+  <img src="Assets/Images/logo.svg" class="site-logo" alt="Logo">
+  <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Menü öffnen">☰</button>
+
+  <div class="sidebar" id="sidebar" aria-hidden="true">
+    <button class="sidebar-close" id="sidebar-close" aria-label="Menü schließen">✕</button>
+    <ul>
+        <li><a href="#">Schule/Leitung</a>
+            <ul>
+                <li><a href="pages/schulleitung.html">Schulleiter</a></li>
+                <li><a href="pages/schulgebäude.html">Schulgebäude</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Politik</a>
+            <ul>
+                <li><a href="pages/schulrat.html">Schulrat</a></li>
+            </ul>
+        </li>
+        <li><a href="pages/daten.html">Daten über die Schule</a></li>
+        <li><a href="#">Bauen und Wohnen</a></li>
+        <li><a href="pages/galerie.html">Galerie</a></li>
+        <li><a href="#">Tourismus</a></li>
+        <li><a href="#">Mobilität</a></li>
+        <li><a href="pages/dienstleistungen.html">Dienstleistungen von A–Z</a></li>
+        <li><a href="pages/veranstaltungen.html">Veranstaltungen</a></li>
+        <li><a href="pages/kultur.html">Schulleben und Kultur</a></li>
+        <li><a href="pages/karriere.html">Karriere</a></li>
+    </ul>
+  </div>
+
+    <main id="main" class="main-content container" role="main">
+      <h2>Kontakt</h2>
+      <form id="contactForm" method="POST" action="https://formspree.io/f/your-id-here">
+        <p>Hinweis: Du kannst das Formular per Formspree oder eigenem Backend versenden. Ersetze `action` mit deiner Formspree-URL.</p>
+        <label for="name">Name</label>
+        <input id="name" name="name" required>
+        <label for="email">E‑Mail</label>
+        <input id="email" name="email" type="email" required>
+        <label for="message">Nachricht</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        <button type="submit">Absenden</button>
+      </form>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
