@@ -1,67 +1,163 @@
 <!doctype html>
 <html lang="de">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Aktuelles — Fiktive Stadt</title>
-  <meta name="description" content="Neuigkeiten aus der fiktiven Stadt.">
-  <link rel="icon" href="Assets/Images/logo.svg">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <a class="skip-link" href="#main">Zum Inhalt springen</a>
-  <img src="Assets/Images/logo.svg" class="site-logo" alt="Logo">
-  <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Menü öffnen">☰</button>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Aktuelles — Fiktive Stadt</title>
+    <link rel="icon" href="Assets/Images/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
 
-  <div class="sidebar" id="sidebar" aria-hidden="true">
-    <button class="sidebar-close" id="sidebar-close" aria-label="Menü schließen">✕</button>
-    <ul>
-        <li><a href="#">Schule/Leitung</a>
-            <ul>
-                <li><a href="pages/schulleitung.html">Schulleiter</a></li>
-                <li><a href="pages/schulgebäude.html">Schulgebäude</a></li>
-            </ul>
-        </li>
-        <li><a href="#">Politik</a>
-            <ul>
-                <li><a href="pages/schulrat.html">Schulrat</a></li>
-            </ul>
-        </li>
-        <li><a href="pages/daten.html">Daten über die Schule</a></li>
-        <li><a href="#">Bauen und Wohnen</a></li>
-        <li><a href="pages/galerie.html">Galerie</a></li>
-        <li><a href="#">Tourismus</a></li>
-        <li><a href="#">Mobilität</a></li>
-        <li><a href="pages/dienstleistungen.html">Dienstleistungen von A–Z</a></li>
-        <li><a href="pages/veranstaltungen.html">Veranstaltungen</a></li>
-        <li><a href="pages/kultur.html">Schulleben und Kultur</a></li>
-        <li><a href="pages/karriere.html">Karriere</a></li>
-    </ul>
-  </div>
+    <header class="site-header">
+      <a href="index.html"><img src="Assets/Images/logo.png" class="site-logo" alt="Logo"></a>
+      <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Menü öffnen">☰</button>
+    </header>
 
-    <main id="main" class="main-content container" role="main">
-      <h2>Aktuelles</h2>
-      <div class="card-grid">
-        <article class="card">
-          <h4>Neues Rathauskonzept</h4>
-          <time datetime="2026-03-01">2026-03-01</time>
-          <p>Planungen für das neue Rathaus wurden vorgestellt. Weitere Informationen und nächste Schritte folgen.</p>
-          <p><a href="#">Mehr</a></p>
-        </article>
-        <article class="card">
-          <h4>Frühlingsfest angekündigt</h4>
-          <time datetime="2026-04-12">2026-04-12</time>
-          <p>Das traditionelle Frühlingsfest findet wieder auf dem Marktplatz statt. Musik, Essen und Aktionen.</p>
-          <p><a href="events.html#fruehlingsfest">Zur Veranstaltung</a></p>
-        </article>
+    <nav class="sidebar" id="sidebar" aria-hidden="true" aria-label="Hauptnavigation">
+      <button class="sidebar-close" id="sidebar-close" aria-label="Navigation schließen">✕</button>
+      <div class="logo">Bayville</div>
+      <ul>
+        <li><a href="index.html">Start</a></li>
+        <li><a href="gallery.html">Galerie</a></li>
+        <li><a href="events.html">Veranstaltungen</a></li>
+        <li><a href="news.html" aria-current="page">Aktuelles</a></li>
+        <li class="has-sub"><a href="#">Verwaltung</a>
+          <ul class="sub">
+            <li><a href="dienstleistungen.html">Dienstleistungen</a></li>
+            <li><a href="bauen-wohnen.html">Bauen &amp; Wohnen</a></li>
+          </ul>
+        </li>
+        <li><a href="daten-stadt.html">Daten</a></li>
+        <li><a href="mobilitaet.html">Mobilität</a></li>
+        <li><a href="tourismus.html">Tourismus</a></li>
+        <li><a href="karriere.html">Karriere</a></li>
+        <li><a href="politik.html">Politik</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+      </ul>
+    </nav>
+
+    <main id="main" class="main-content" role="main">
+      <div class="container">
+        <h2>Aktuelles &amp; Nachrichten</h2>
+        <p>Bleibe über die neuesten Entwicklungen, Projekte und Events in Bayville informiert!</p>
+
+        <div class="card-grid">
+          <article class="card">
+            <h4>🏛️ Neues Rathauskonzept vorgestellt</h4>
+            <time datetime="2026-03-01">1. März 2026</time>
+            <p>Die Stadtverwaltung hat ein innovatives Konzept für den Umbau und die Modernisierung des Rathauses präsentiert. Das Projekt wird 18 Monate dauern und ein neues Besucherzentrum beinhalten.</p>
+            <p><a href="#">Mehr lesen →</a></p>
+          </article>
+
+          <article class="card">
+            <h4>🎉 Frühlingsfest angekündigt</h4>
+            <time datetime="2026-04-12">12. April 2026</time>
+            <p>Das traditionelle Frühlingsfest findet am 17. April statt! Mit Live-Musik, internationalen Spezialitäten, Kinderunterhaltung und vielen Überraschungen. <a href="events.html#fruehlingsfest">Zur Veranstaltung</a></p>
+            <p><a href="#">Mehr lesen →</a></p>
+          </article>
+
+          <article class="card">
+            <h4>🌳 Großes Baumpflanzungsprogramm startet</h4>
+            <time datetime="2026-02-28">28. Februar 2026</time>
+            <p>Die Stadt Bayville pflanzt in diesem Jahr 5.000 neue Bäume! Das Programm ist Teil der Nachhaltigkeitsstrategie und zielt auf mehr Grünflächen in der Stadt.</p>
+            <p><a href="#">Mehr lesen →</a></p>
+          </article>
+
+          <article class="card">
+            <h4>🚴 Neue Radwege vollständig eröffnet</h4>
+            <time datetime="2026-02-20">20. Februar 2026</time>
+            <p>50 Kilometer neue Fahrradwege verbinden jetzt alle Stadtteile. Ein großer Schritt zur Förderung nachhaltiger Mobilität in Bayville. Kostenlose Fahrrad-Checkup Tage am 22. Februar!</p>
+            <p><a href="#">Mehr lesen →</a></p>
+          </article>
+
+          <article class="card">
+            <h4>🎓 Neue Tech-Universität geplant</h4>
+            <time datetime="2026-02-15">15. Februar 2026</time>
+            <p>Bayville wird Standort einer neuen Technologie- und Innovationsuniversität. Der Campus wird 2027 eröffnet und soll 3.000 Studenten aufnehmen.</p>
+            <p><a href="#">Mehr lesen →</a></p>
+          </article>
+
+          <article class="card">
+            <h4>🍽️ Kulinarisches Festival im August</h4>
+            <time datetime="2026-02-10">10. Februar 2026</time>
+            <p>Speichern Sie den Termin: Das internationale Kulinarische Festival findet vom 20.-22. August statt. Mit Köchen, Verkostungen und Kochwettbewerben. <a href="events.html#food-fest">Zu den Events</a></p>
+            <p><a href="#">Mehr lesen →</a></p>
+          </article>
+
+          <article class="card">
+            <h4>💡 Smart City Initiative ausgezeichnet</h4>
+            <time datetime="2026-02-05">5. Februar 2026</time>
+            <p>Bayville wurde für seine Smart City Initiative international ausgezeichnet! Das intelligente Verkehrsmanagementsystem hat die Staus um 25% reduziert.</p>
+            <p><a href="#">Mehr lesen →</a></p>
+          </article>
+
+          <article class="card">
+            <h4>👨‍👩‍👧‍👦 Neue Spielplätze eröffnet</h4>
+            <time datetime="2026-01-30">30. Januar 2026</time>
+            <p>Drei neue, modern ausgestattete Spielplätze wurden in verschiedenen Stadtteilen eröffnet. Sie bieten Aktivitäten für alle Altersgruppen und sind barrierefrei zugänglich.</p>
+            <p><a href="#">Mehr lesen →</a></p>
+          </article>
+
+          <article class="card">
+            <h4>🎨 Kostenlose Kunstkurse für alle</h4>
+            <time datetime="2026-01-25">25. Januar 2026</time>
+            <p>Das Kulturamt bietet ab März kostenlose Kunstkurse an! Malen, Skulptur, Fotografie und mehr. Alle Altersgruppen willkommen. Jetzt anmelden!</p>
+            <p><a href="#">Mehr lesen →</a></p>
+          </article>
+
+          <article class="card">
+            <h4>🌍 Bayville setzt CO₂-Ziele durch</h4>
+            <time datetime="2026-01-20">20. Januar 2026</time>
+            <p>Die Stadt übertraf ihre Emissionsreduktionsziele für 2025 um 12%. Mit erneuerbaren Energien und grünem Transport sind wir auf dem guten Weg zu einem CO₂-neutralen Bayville.</p>
+            <p><a href="#">Mehr lesen →</a></p>
+          </article>
+
+          <article class="card">
+            <h4>📚 Neue Stadtbibliothek eröffnet Bald</h4>
+            <time datetime="2026-01-15">15. Januar 2026</time>
+            <p>Die hochmoderne neue Stadtbibliothek wird im März eröffnet. Mit digitalen Ressourcen, Veranstaltungsräumen und einem innovativen Makerspace.</p>
+            <p><a href="#">Mehr lesen →</a></p>
+          </article>
+
+          <article class="card">
+            <h4>🎭 Theater-Festival künftig regelmäßig</h4>
+            <time datetime="2026-01-10">10. Januar 2026</time>
+            <p>Das erfolgreiche Theater-Festival wird ab 2026 jedes Jahr stattfinden! Mit internationalen und lokalen Künstlern und innovativen Produktionen.</p>
+            <p><a href="#">Mehr lesen →</a></p>
+          </article>
+        </div>
+
+        <section style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #ffffff 0%, #f8faf7 100%); border: 2px solid rgba(45, 126, 102, 0.2); border-radius: 16px;">
+          <h3>📬 Newsletter abonnieren</h3>
+          <p>Bleibe über die wichtigsten Nachrichten und Events in Bayville auf dem Laufenden. Melde dich für unseren wöchentlichen Newsletter an!</p>
+          <form style="display: flex; gap: 0.5rem; max-width: 400px;">
+            <input type="email" placeholder="deine@email.com" required style="flex: 1;">
+            <button type="submit">Abonnieren</button>
+          </form>
+        </section>
       </div>
+
+      <footer class="site-footer">
+        <div class="container">
+          <div class="brand">
+            <img src="Assets/Images/logo.png" alt="Bayville Logo" width="48" height="48">
+            <div>
+              <strong>Bayville</strong>
+              <div><small>Fiktive Stadt — Demo</small></div>
+            </div>
+          </div>
+          <nav aria-label="Footer navigation">
+            <a href="index.html">Start</a>
+            <a href="gallery.html">Galerie</a>
+            <a href="events.html">Veranstaltungen</a>
+            <a href="contact.html">Kontakt</a>
+          </nav>
+        </div>
+      </footer>
     </main>
-  </div>
 
-  <script src="js/main.js"></script>
-</body>
-</html>
-
-</body>
+    <script src="js/main.js"></script>
+  </body>
 </html>

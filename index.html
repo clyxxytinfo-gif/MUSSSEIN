@@ -10,30 +10,33 @@
   </head>
   <body>
 
-    <a href="index.html"><img src="Assets/Images/logo.png" class="site-logo" alt="Logo"></a>
-    <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Menü öffnen">☰</button>
+    <header class="site-header">
+      <a href="index.html"><img src="Assets/Images/logo.png" class="site-logo" alt="Logo"></a>
+      <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Menü öffnen">☰</button>
+    </header>
 
-    <div class="sidebar" id="sidebar" aria-hidden="true">
+    <nav class="sidebar" id="sidebar" aria-hidden="true" aria-label="Hauptnavigation">
+      <button class="sidebar-close" id="sidebar-close" aria-label="Navigation schließen">✕</button>
+      <div class="logo">Bayville</div>
       <ul>
-          <li><a href="#">Stadt/Verwaltung</a>
-            <ul>
-              <li><a href="dienstleistungen.html">Dienstleistungen von A-Z</a></li>
-              <li><a href="bauen_wohnen.html">Bauen und wohnen</a></li>
-           </ul>
-          </li>
-         <li><a href="#">Politik</a>
-            <ul>
-             <li><a href="pages/schulrat.html">Schulrat</a></li>
-            </ul>
-          </li>
-          <li><a href="pages/daten.html">Daten über die Schule</a></li>
-          <li><a href="#">Bauen und Wohnen</a></li>
-          <li><a href="gallery.html">Galerie</a></li>
-          <li><a href="#">Tourismus</a></li>
-          <li><a href="#">Mobilität</a></li>
-          <li><a href="pages/veranstaltungen.html">Veranstaltungen</a></li>
-     </ul>
-    </div>
+        <li><a href="index.html">Start</a></li>
+        <li><a href="gallery.html">Galerie</a></li>
+        <li><a href="events.html">Veranstaltungen</a></li>
+        <li><a href="news.html">Aktuelles</a></li>
+        <li class="has-sub"><a href="#">Verwaltung</a>
+          <ul class="sub">
+            <li><a href="dienstleistungen.html">Dienstleistungen</a></li>
+            <li><a href="bauen-wohnen.html">Bauen &amp; Wohnen</a></li>
+          </ul>
+        </li>
+        <li><a href="daten-stadt.html">Daten</a></li>
+        <li><a href="mobilitaet.html">Mobilität</a></li>
+        <li><a href="tourismus.html">Tourismus</a></li>
+        <li><a href="karriere.html">Karriere</a></li>
+        <li><a href="politik.html">Politik</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+      </ul>
+    </nav>
 
     <main id="main" class="main-content" role="main">
       <section id="home" class="hero">
@@ -95,32 +98,83 @@
         </div>
       </section>
 
-      <section id="gallery" class="container">
+      <section id="gallery" class="container gallery-preview">
         <h3>Karte / Galerie</h3>
-        <p>Platzhalter für eine interaktive Karte oder Bildergalerie.</p>
+        <p>Eine kleine Vorschau der Galerie — klicke auf ein Bild oder öffne die vollständige Galerie.</p>
+
+        <div class="gallery-grid preview">
+          <figure class="gallery-item" data-title="Rathaus" data-fullimg="https://picsum.photos/id/1018/1600/1000">
+            <img src="https://picsum.photos/id/1018/400/300" alt="Rathaus" loading="lazy">
+            <figcaption>Rathaus</figcaption>
+          </figure>
+          <figure class="gallery-item" data-title="Stadtpark" data-fullimg="https://picsum.photos/id/1020/1600/1000">
+            <img src="https://picsum.photos/id/1020/400/300" alt="Stadtpark" loading="lazy">
+            <figcaption>Stadtpark</figcaption>
+          </figure>
+          <figure class="gallery-item" data-title="Museum" data-fullimg="https://picsum.photos/id/1043/1600/1000">
+            <img src="https://picsum.photos/id/1043/400/300" alt="Museum" loading="lazy">
+            <figcaption>Museum</figcaption>
+          </figure>
+        </div>
+
+        <p><a href="gallery.html">Zur vollständigen Galerie</a></p>
       </section>
 
       <section id="contact" class="container">
         <h3>Kontakt</h3>
-        <form id="contactForm">
-          <label for="name">Name</label>
-          <input id="name" name="name" required>
-          <label for="email">E‑Mail</label>
-          <input id="email" name="email" type="email" required>
-          <label for="message">Nachricht</label>
-          <textarea id="message" name="message" rows="4" required></textarea>
-          <button type="submit">Absenden</button>
-        </form>
-      </section>
-    </main>
+        <div class="contact-grid">
+          <form id="contactForm" class="contact-form">
+            <div class="row">
+              <div>
+                <label for="name">Name</label>
+                <input id="name" name="name" required>
+              </div>
+              <div>
+                <label for="email">E‑Mail</label>
+                <input id="email" name="email" type="email" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="full">
+                <label for="message">Nachricht</label>
+                <textarea id="message" name="message" rows="6" required></textarea>
+              </div>
+            </div>
+            <button type="submit">Absenden</button>
+          </form>
 
-    <footer class="site-footer">
-      <div class="container">
-        <p>© Fiktive Stadt — Demo 2026</p>
-      </div>
-    </footer>
+          <aside class="contact-info" aria-labelledby="contact-info-heading">
+            <h4 id="contact-info-heading">Stadtverwaltung Bayville</h4>
+            <p>Adresse: Marktstraße 1, 12345 Bayville</p>
+            <p>Telefon: +49 123 456789</p>
+            <p>E‑Mail: info@bayville.example</p>
+            <p>Öffnungszeiten: Mo–Fr 09:00–17:00</p>
+          </aside>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <div class="footer-top">
+          <img src="Assets/Images/2026-02-21_15.12.28.png" alt="Panorama Bayville" aria-hidden="true">
+        </div>
+        <div class="container">
+          <div class="brand">
+            <img src="Assets/Images/logo.png" alt="Bayville Logo" width="48" height="48">
+            <div>
+              <strong>Bayville</strong>
+              <div><small>Fiktive Stadt — Demo</small></div>
+            </div>
+          </div>
+          <nav aria-label="Footer navigation">
+            <a href="index.html">Start</a>
+            <a href="gallery.html">Galerie</a>
+            <a href="events.html">Veranstaltungen</a>
+            <a href="contact.html">Kontakt</a>
+          </nav>
+        </div>
+      </footer>
+    </main>
 
     <script src="js/main.js"></script>
   </body>
 </html>
-3

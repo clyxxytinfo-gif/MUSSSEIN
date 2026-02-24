@@ -1,62 +1,147 @@
 <!doctype html>
 <html lang="de">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Veranstaltungen — Fiktive Stadt</title>
-  <meta name="description" content="Veranstaltungskalender und Highlights der fiktiven Stadt.">
-  <link rel="icon" href="Assets/Images/logo.svg">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <a class="skip-link" href="#main">Zum Inhalt springen</a>
-  <img src="Assets/Images/logo.svg" class="site-logo" alt="Logo">
-  <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Menü öffnen">☰</button>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Veranstaltungen — Fiktive Stadt</title>
+    <link rel="icon" href="Assets/Images/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
 
-  <div class="sidebar" id="sidebar" aria-hidden="true">
-    <button class="sidebar-close" id="sidebar-close" aria-label="Menü schließen">✕</button>
-    <ul>
-        <li><a href="#">Schule/Leitung</a>
-            <ul>
-                <li><a href="pages/schulleitung.html">Schulleiter</a></li>
-                <li><a href="pages/schulgebäude.html">Schulgebäude</a></li>
-            </ul>
-        </li>
-        <li><a href="#">Politik</a>
-            <ul>
-                <li><a href="pages/schulrat.html">Schulrat</a></li>
-            </ul>
-        </li>
-        <li><a href="pages/daten.html">Daten über die Schule</a></li>
-        <li><a href="#">Bauen und Wohnen</a></li>
-        <li><a href="pages/galerie.html">Galerie</a></li>
-        <li><a href="#">Tourismus</a></li>
-        <li><a href="#">Mobilität</a></li>
-        <li><a href="pages/dienstleistungen.html">Dienstleistungen von A–Z</a></li>
-        <li><a href="pages/veranstaltungen.html">Veranstaltungen</a></li>
-        <li><a href="pages/kultur.html">Schulleben und Kultur</a></li>
-        <li><a href="pages/karriere.html">Karriere</a></li>
-    </ul>
-  </div>
+    <header class="site-header">
+      <a href="index.html"><img src="Assets/Images/logo.png" class="site-logo" alt="Logo"></a>
+      <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Menü öffnen">☰</button>
+    </header>
 
-    <main id="main" class="main-content container" role="main">
-      <h2>Veranstaltungen</h2>
-      <div class="card-grid">
-        <article class="card" id="fruehlingsfest">
-          <h4>Frühlingsfest</h4>
-          <time datetime="2026-04-17">2026-04-17</time>
-          <p>Musik, Essen und Aktivitäten für Kinder auf dem Marktplatz.</p>
-        </article>
-        <article class="card" id="kunstmarkt">
-          <h4>Kunstmarkt</h4>
-          <time datetime="2026-05-08">2026-05-08</time>
-          <p>Lokale Künstler stellen ihre Werke aus.</p>
-        </article>
+    <nav class="sidebar" id="sidebar" aria-hidden="true" aria-label="Hauptnavigation">
+      <button class="sidebar-close" id="sidebar-close" aria-label="Navigation schließen">✕</button>
+      <div class="logo">Bayville</div>
+      <ul>
+        <li><a href="index.html">Start</a></li>
+        <li><a href="gallery.html">Galerie</a></li>
+        <li><a href="events.html" aria-current="page">Veranstaltungen</a></li>
+        <li><a href="news.html">Aktuelles</a></li>
+        <li class="has-sub"><a href="#">Verwaltung</a>
+          <ul class="sub">
+            <li><a href="dienstleistungen.html">Dienstleistungen</a></li>
+            <li><a href="bauen-wohnen.html">Bauen &amp; Wohnen</a></li>
+          </ul>
+        </li>
+        <li><a href="daten-stadt.html">Daten</a></li>
+        <li><a href="mobilitaet.html">Mobilität</a></li>
+        <li><a href="tourismus.html">Tourismus</a></li>
+        <li><a href="karriere.html">Karriere</a></li>
+        <li><a href="politik.html">Politik</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+      </ul>
+    </nav>
+
+    <main id="main" class="main-content" role="main">
+      <div class="container">
+        <h2>Veranstaltungen 2026</h2>
+        <p>Entdecke die spannendsten Events und Aktivitäten in Bayville. Von Musik über Kultur bis hin zu Outdoor-Aktivitäten — für jeden ist etwas dabei!</p>
+
+        <div class="card-grid">
+          <article class="card" id="fruehlingsfest">
+            <h4>🎉 Frühlingsfest</h4>
+            <time datetime="2026-04-17">17. April 2026</time>
+            <p>Das größte Fest des Jahres mit Live-Musik, kulinarischen Spezialitäten und Familienaktivitäten auf dem Marktplatz.</p>
+            <p><strong>Ort:</strong> Zentraler Marktplatz<br>
+            <strong>Zeit:</strong> 10:00 - 22:00 Uhr<br>
+            <strong>Eintritt:</strong> Kostenlos</p>
+          </article>
+
+          <article class="card" id="kunstmarkt">
+            <h4>🎨 Kunstmarkt &amp; Galerie-Spaziergang</h4>
+            <time datetime="2026-05-08">8. Mai 2026</time>
+            <p>Lokale Künstler präsentieren ihre Werke. Geführte Touren durch die Kunstviertel mit exklusiven Einblicken.</p>
+            <p><strong>Ort:</strong> Künstlerviertel Südstadt<br>
+            <strong>Zeit:</strong> 11:00 - 19:00 Uhr<br>
+            <strong>Eintritt:</strong> Kostenlos</p>
+          </article>
+
+          <article class="card" id="stadtlauf">
+            <h4>🏃 City Marathon</h4>
+            <time datetime="2026-05-22">22. Mai 2026</time>
+            <p>Der jährliche Marathon durch die schönsten Ecken Bayville. Verschiedene Strecken für Läufer aller Niveaus.</p>
+            <p><strong>Ort:</strong> Start: Botanischer Garten<br>
+            <strong>Zeit:</strong> 07:00 - 14:00 Uhr<br>
+            <strong>Anmeldung:</strong> Erforderlich</p>
+          </article>
+
+          <article class="card" id="sommerkino">
+            <h4>🎬 Open-Air Sommerkino</h4>
+            <time datetime="2026-06-15">15. Juni - 31. August 2026</time>
+            <p>Filme unter freiem Himmel mit Getränken und Snacks. Klassische und aktuelle Blockbuster.</p>
+            <p><strong>Ort:</strong> Flusspark<br>
+            <strong>Zeit:</strong> 21:00 Uhr (Einlass ab 20:30)<br>
+            <strong>Eintritt:</strong> €7 / Kinder €4</p>
+          </article>
+
+          <article class="card" id="jazz-fest">
+            <h4>🎵 Jazz &amp; Blues Festival</h4>
+            <time datetime="2026-07-10">10. - 12. Juli 2026</time>
+            <p>Internationiales Jazz-Festival mit bekannten und aufstrebenden Künstlern. Mehrere Bühnen und Künstler.</p>
+            <p><strong>Ort:</strong> Kulturforum<br>
+            <strong>Zeit:</strong> 18:00 - 23:00 Uhr<br>
+            <strong>Karten:</strong> Ab €25</p>
+          </article>
+
+          <article class="card" id="food-fest">
+            <h4>🍽️ Kulinarisches Festival</h4>
+            <time datetime="2026-08-20">20. - 22. August 2026</time>
+            <p>Internationale Küche von lokalen Restaurants und Köchen. Verkostungen, Kochwerkstätten und Live-Cooking.</p>
+            <p><strong>Ort:</strong> Marktplatz &amp; Altstadtplatz<br>
+            <strong>Zeit:</strong> 12:00 - 23:00 Uhr<br>
+            <strong>Eintritt:</strong> Kostenlos</p>
+          </article>
+
+          <article class="card" id="nachtlauf">
+            <h4>🌙 Nachtlauf durch Bayville</h4>
+            <time datetime="2026-09-04">4. September 2026</time>
+            <p>Spektakularer Abendlauf mit LED-Kostümen und beleuchteter Strecke durch die Stadt.</p>
+            <p><strong>Ort:</strong> Innenstadt &amp; Flusspark<br>
+            <strong>Zeit:</strong> 19:30 - 22:00 Uhr<br>
+            <strong>Eintritt:</strong> €15</p>
+          </article>
+
+          <article class="card" id="herbstkino">
+            <h4>🍂 Herbstfest &amp; Traditionelle Märkte</h4>
+            <time datetime="2026-10-01">1. - 31. Oktober 2026</time>
+            <p>Kürbis-Fest, traditionelle Handwerksmärkte und viele gemütliche Aktivitäten für die ganze Familie.</p>
+            <p><strong>Ort:</strong> Verschiedene Orte in der Stadt<br>
+            <strong>Zeit:</strong> Tagsüber varierend<br>
+            <strong>Eintritt:</strong> Kostenlos</p>
+          </article>
+        </div>
+
+        <section style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #ffffff 0%, #f8faf7 100%); border: 2px solid rgba(45, 126, 102, 0.2); border-radius: 16px;">
+          <h3>📋 Möchtest du eine Veranstaltung organisieren?</h3>
+          <p>Bayville unterstützt lokale Organisatoren und Events. <a href="contact.html">Kontaktiere uns</a> für mehr Informationen über Räumlichkeiten, Genehmigungen und Unterstützung.</p>
+        </section>
       </div>
-    </main>
-  </div>
 
-  <script src="js/main.js"></script>
-</body>
+      <footer class="site-footer">
+        <div class="container">
+          <div class="brand">
+            <img src="Assets/Images/logo.png" alt="Bayville Logo" width="48" height="48">
+            <div>
+              <strong>Bayville</strong>
+              <div><small>Fiktive Stadt — Demo</small></div>
+            </div>
+          </div>
+          <nav aria-label="Footer navigation">
+            <a href="index.html">Start</a>
+            <a href="gallery.html">Galerie</a>
+            <a href="events.html">Veranstaltungen</a>
+            <a href="contact.html">Kontakt</a>
+          </nav>
+        </div>
+      </footer>
+    </main>
+
+    <script src="js/main.js"></script>
+  </body>
 </html>

@@ -1,60 +1,156 @@
 <!doctype html>
 <html lang="de">
   <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Kontakt — Fiktive Stadt</title>
-  <meta name="description" content="Kontaktformular und Ansprechpartner der fiktiven Stadt.">
-  <link rel="icon" href="Assets/Images/logo.svg">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <a class="skip-link" href="#main">Zum Inhalt springen</a>
-  <img src="Assets/Images/logo.svg" class="site-logo" alt="Logo">
-  <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Menü öffnen">☰</button>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Kontakt — Fiktive Stadt</title>
+    <link rel="icon" href="Assets/Images/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
 
-  <div class="sidebar" id="sidebar" aria-hidden="true">
-    <button class="sidebar-close" id="sidebar-close" aria-label="Menü schließen">✕</button>
-    <ul>
-        <li><a href="#">Schule/Leitung</a>
-            <ul>
-                <li><a href="pages/schulleitung.html">Schulleiter</a></li>
-                <li><a href="pages/schulgebäude.html">Schulgebäude</a></li>
-            </ul>
-        </li>
-        <li><a href="#">Politik</a>
-            <ul>
-                <li><a href="pages/schulrat.html">Schulrat</a></li>
-            </ul>
-        </li>
-        <li><a href="pages/daten.html">Daten über die Schule</a></li>
-        <li><a href="#">Bauen und Wohnen</a></li>
-        <li><a href="pages/galerie.html">Galerie</a></li>
-        <li><a href="#">Tourismus</a></li>
-        <li><a href="#">Mobilität</a></li>
-        <li><a href="pages/dienstleistungen.html">Dienstleistungen von A–Z</a></li>
-        <li><a href="pages/veranstaltungen.html">Veranstaltungen</a></li>
-        <li><a href="pages/kultur.html">Schulleben und Kultur</a></li>
-        <li><a href="pages/karriere.html">Karriere</a></li>
-    </ul>
-  </div>
+    <header class="site-header">
+      <a href="index.html"><img src="Assets/Images/logo.png" class="site-logo" alt="Logo"></a>
+      <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Menü öffnen">☰</button>
+    </header>
 
-    <main id="main" class="main-content container" role="main">
-      <h2>Kontakt</h2>
-      <form id="contactForm" method="POST" action="https://formspree.io/f/your-id-here">
-        <p>Hinweis: Du kannst das Formular per Formspree oder eigenem Backend versenden. Ersetze `action` mit deiner Formspree-URL.</p>
-        <label for="name">Name</label>
-        <input id="name" name="name" required>
-        <label for="email">E‑Mail</label>
-        <input id="email" name="email" type="email" required>
-        <label for="message">Nachricht</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
-        <button type="submit">Absenden</button>
-      </form>
+    <nav class="sidebar" id="sidebar" aria-hidden="true" aria-label="Hauptnavigation">
+      <button class="sidebar-close" id="sidebar-close" aria-label="Navigation schließen">✕</button>
+      <div class="logo">Bayville</div>
+      <ul>
+        <li><a href="index.html">Start</a></li>
+        <li><a href="gallery.html">Galerie</a></li>
+        <li><a href="events.html">Veranstaltungen</a></li>
+        <li><a href="news.html">Aktuelles</a></li>
+        <li class="has-sub"><a href="#">Verwaltung</a>
+          <ul class="sub">
+            <li><a href="dienstleistungen.html">Dienstleistungen</a></li>
+            <li><a href="bauen-wohnen.html">Bauen &amp; Wohnen</a></li>
+          </ul>
+        </li>
+        <li><a href="daten-stadt.html">Daten</a></li>
+        <li><a href="mobilitaet.html">Mobilität</a></li>
+        <li><a href="tourismus.html">Tourismus</a></li>
+        <li><a href="karriere.html">Karriere</a></li>
+        <li><a href="politik.html">Politik</a></li>
+        <li><a href="contact.html" aria-current="page">Kontakt</a></li>
+      </ul>
+    </nav>
+
+    <main id="main" class="main-content" role="main">
+      <div class="container">
+        <h2>Kontakt &amp; Informationen</h2>
+        <p>Du hast Fragen oder möchtest mehr über Bayville erfahren? Wir sind hier, um zu helfen!</p>
+
+        <div class="contact-grid">
+          <div>
+            <form id="contactForm" method="POST" action="#">
+              <h3>✉️ Nachricht senden</h3>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">Hinweis: Dies ist ein Demo-Formular</p>
+              
+              <label for="name">Name *</label>
+              <input id="name" name="name" required placeholder="Dein Name">
+              
+              <label for="email">E-Mail *</label>
+              <input id="email" name="email" type="email" required placeholder="deine@email.com">
+              
+              <label for="subject">Betreff *</label>
+              <input id="subject" name="subject" required placeholder="Worüber möchtest du schreiben?">
+              
+              <label for="message">Nachricht *</label>
+              <textarea id="message" name="message" rows="5" required placeholder="Deine Nachricht hier..."></textarea>
+              
+              <button type="submit">Nachricht senden</button>
+            </form>
+          </div>
+
+          <div class="contact-info">
+            <h3>📍 Hauptsitz</h3>
+            <p>
+              <strong>Stadt Bayville</strong><br>
+              Rathaus<br>
+              Marktplatz 1<br>
+              12345 Bayville<br>
+              Deutschland
+            </p>
+
+            <h3>📞 Telefon</h3>
+            <p>
+              <strong>Zentrale:</strong> +49 (0) 123 / 456789<br>
+              <strong>Bürgerbüro:</strong> +49 (0) 123 / 45678-10<br>
+              <strong>Tourismusinfo:</strong> +49 (0) 123 / 45678-20
+            </p>
+
+            <h3>📧 E-Mail</h3>
+            <p>
+              <strong>Allgemein:</strong> <a href="mailto:info@bayville.de">info@bayville.de</a><br>
+              <strong>Tourismus:</strong> <a href="mailto:tourism@bayville.de">tourism@bayville.de</a><br>
+              <strong>Events:</strong> <a href="mailto:events@bayville.de">events@bayville.de</a>
+            </p>
+
+            <h3>🕐 Öffnungszeiten</h3>
+            <p>
+              <strong>Montag - Freitag:</strong> 08:00 - 17:00 Uhr<br>
+              <strong>Samstag:</strong> 10:00 - 14:00 Uhr<br>
+              <strong>Sonntag:</strong> Geschlossen<br>
+              <strong>Feiertage:</strong> Geschlossen
+            </p>
+
+            <h3>🌐 Online</h3>
+            <p>
+              <strong>Website:</strong> www.bayville.de<br>
+              <strong>Facebook:</strong> @BayvilleCommunity<br>
+              <strong>Instagram:</strong> @BayvilleLive<br>
+              <strong>Twitter:</strong> @BayvilleCity
+            </p>
+          </div>
+        </div>
+
+        <section style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #ffffff 0%, #f8faf7 100%); border: 2px solid rgba(45, 126, 102, 0.2); border-radius: 16px;">
+          <h3>🗺️ Besuche uns</h3>
+          <p>Das Tourismusinfocenter befindet sich direkt neben dem Rathaus. Unser Team hilft gerne bei:</p>
+          <ul style="margin-left: 1.5rem;">
+            <li>Hotelreservierungen und Unterkunftsempfehlungen</li>
+            <li>Stadrundgang und Ausflugstipps</li>
+            <li>Informationen zu Veranstaltungen</li>
+            <li>Tickets und Reservation</li>
+            <li>Kulinarischen Empfehlungen</li>
+          </ul>
+        </section>
+
+        <section style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #f8faf7 0%, #e8dcc4 100%); border: 2px solid rgba(45, 126, 102, 0.2); border-radius: 16px;">
+          <h3>❓ Häufig gestellte Fragen</h3>
+          <p><strong>Wie kommst du nach Bayville?</strong><br>
+          Mit der Bahn: Direktverbindungen zu allen Großstädten. Mit dem Auto: Zentrale Lage an der A4. Mit dem Flugzeug: Flughafen 30 Minuten entfernt.</p>
+          
+          <p><strong>Welche Sehenswürdigkeiten gibt es?</strong><br>
+          Botanischer Garten, Kunstmuseum, historische Altstadt, Flusspark, und vieles mehr. Besuche die <a href="gallery.html">Galerie</a> für Bilder!</p>
+          
+          <p><strong>Wann ist die beste Zeit zu besuchen?</strong><br>
+          Bayville ist das ganze Jahr über wunderbar, aber Frühjahr und Sommer sind besonders beliebt mit vielen <a href="events.html">Events und Veranstaltungen</a>.</p>
+        </section>
+      </div>
+
+      <footer class="site-footer">
+        <div class="container">
+          <div class="brand">
+            <img src="Assets/Images/logo.png" alt="Bayville Logo" width="48" height="48">
+            <div>
+              <strong>Bayville</strong>
+              <div><small>Fiktive Stadt — Demo</small></div>
+            </div>
+          </div>
+          <nav aria-label="Footer navigation">
+            <a href="index.html">Start</a>
+            <a href="gallery.html">Galerie</a>
+            <a href="events.html">Veranstaltungen</a>
+            <a href="contact.html">Kontakt</a>
+          </nav>
+        </div>
+      </footer>
     </main>
-  </div>
 
-  <script src="js/main.js"></script>
-</body>
+    <script src="js/main.js"></script>
+  </body>
 </html>

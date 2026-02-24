@@ -5,42 +5,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Galerie & Karte — Fiktive Stadt</title>
   <meta name="description" content="Interaktive Galerie und Karte der fiktiven Stadt mit Game-Elementen.">
-  <link rel="icon" href="../Assets/Images/logo.svg">
+  <link rel="icon" href="Assets/Images/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-sA+4g6kGQ6k7Y2g9w4h0gqkFQxjvF7ZxTt2fT0w5r3s=" crossorigin />
 </head>
 <body>
   <a class="skip-link" href="#main">Zum Hauptinhalt springen</a>
   
   <header class="site-header">
-    <img src="../Assets/Images/logo.svg" class="site-logo" alt="Fiktive Stadt Logo" width="48" height="48">
-    <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Navigation öffnen" aria-expanded="false">☰</button>
+    <a href="index.html"><img src="Assets/Images/logo.svg" class="site-logo" alt="Fiktive Stadt Logo" width="48" height="48"></a>
+     <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Navigation öffnen" aria-expanded="false">☰</button>
   </header>
 
   <nav class="sidebar" id="sidebar" aria-hidden="true" aria-label="Hauptnavigation">
     <button class="sidebar-close" id="sidebar-close" aria-label="Navigation schließen">✕</button>
+    <div class="logo">Bayville</div>
     <ul>
-      <li><details><summary>Schule/Leitung</summary><ul><li><a href="schulleitung.html">Schulleiter</a></li><li><a href="schulgebäude.html">Schulgebäude</a></li></ul></details></li>
-      <li><details><summary>Politik</summary><ul><li><a href="schulrat.html">Schulrat</a></li></ul></details></li>
-      <li><a href="daten.html">Daten über die Schule</a></li>
-      <li><a href="#">Bauen und Wohnen</a></li>
-      <li><a href="galerie.html" aria-current="page">Galerie</a></li>
-      <li><a href="#">Tourismus</a></li>
-      <li><a href="#">Mobilität</a></li>
-      <li><a href="dienstleistungen.html">Dienstleistungen von A–Z</a></li>
-      <li><a href="veranstaltungen.html">Veranstaltungen</a></li>
-      <li><a href="kultur.html">Schulleben und Kultur</a></li>
+      <li><a href="index.html">Start</a></li>
+      <li><a href="gallery.html" aria-current="page">Galerie</a></li>
+      <li><a href="events.html">Veranstaltungen</a></li>
+      <li><a href="news.html">Aktuelles</a></li>
+      <li class="has-sub"><a href="#">Verwaltung</a>
+        <ul class="sub">
+          <li><a href="dienstleistungen.html">Dienstleistungen</a></li>
+          <li><a href="bauen-wohnen.html">Bauen &amp; Wohnen</a></li>
+        </ul>
+      </li>
+      <li><a href="daten-stadt.html">Daten</a></li>
+      <li><a href="mobilitaet.html">Mobilität</a></li>
+      <li><a href="tourismus.html">Tourismus</a></li>
       <li><a href="karriere.html">Karriere</a></li>
+      <li><a href="politik.html">Politik</a></li>
+      <li><a href="contact.html">Kontakt</a></li>
     </ul>
   </nav>
 
-  <main id="main" class="main-content container" role="main">
+  <main id="main" class="main-content" role="main">
     <header>
       <h1>Galerie & interaktive Karte</h1>
-      <p>🔍 Sammle Punkte durch Erkunden! Klick auf Bilder & Marker → Score + Lightbox</p>
+      <p>Entdecke Orte und Bilder der Stadt — zoome in die Karte oder öffne Fotos in voller Größe.</p>
     </header>
 
     <!-- 🗺️ INTERAKTIVE KARTE -->
@@ -49,21 +55,81 @@
       <div id="map" class="map-container" role="region" aria-label="Interaktive Karte" tabindex="-1"></div>
     </section>
 
-    <!-- 🖼️ GEILE GALERIE-GAME -->
+    <!-- 🖼️ Überarbeitetes Galerie-Layout -->
     <section class="gallery-section" aria-labelledby="gallery-heading">
-      <h2 id="gallery-heading">Fotogalerie (Punkte sammeln!)</h2>
-      <div class="gallery-grid" role="list">
-        <figure class="gallery-item" role="listitem" data-title="Schulgebäude" data-fullimg="Assets/Images/2026-02-22_12.05.50.png">
-          <img src="Assets/Images/thumb.svg" alt="Schulgebäude bei Sonnenuntergang" loading="lazy" width="400" height="300">
-          <figcaption>Schulgebäude</figcaption>
+      <h2 id="gallery-heading">Fotogalerie</h2>
+
+      <div class="gallery-toolbar">
+        <div class="filters" role="tablist" aria-label="Galerie Filter">
+          <button class="filter active" data-filter="*">Alle</button>
+          <button class="filter" data-filter="architecture">Architektur</button>
+          <button class="filter" data-filter="nature">Natur</button>
+          <button class="filter" data-filter="events">Events</button>
+        </div>
+        <div class="gallery-search">
+          <input type="search" id="gallerySearch" placeholder="Suche Bilder..." aria-label="Galerie Suche">
+        </div>
+      </div>
+
+      <div class="gallery-grid masonry" role="list">
+        <figure class="gallery-item" role="listitem" data-category="architecture" data-title="Rathaus bei Sonnenaufgang" data-fullimg="https://picsum.photos/id/1018/1600/1000">
+          <img src="https://picsum.photos/id/1018/800/1200" alt="Rathaus" loading="lazy" width="800" height="1200">
+          <figcaption>
+            <div class="meta">
+              <h3>Rathaus</h3>
+              <small>Architektur • Rathaus</small>
+            </div>
+          </figcaption>
         </figure>
-        <figure class="gallery-item" role="listitem" data-title="Schulhof" data-fullimg="Assets/Images/2026-02-22_12.05.50.png">
-          <img src="Assets/Images/thumb.svg" alt="Schulhof mit Kindern" loading="lazy" width="400" height="300">
-          <figcaption>Schulhof</figcaption>
+
+        <figure class="gallery-item" role="listitem" data-category="nature" data-title="Stadtpark" data-fullimg="https://picsum.photos/id/1020/1600/1000">
+          <img src="https://picsum.photos/id/1020/800/1000" alt="Stadtpark" loading="lazy" width="800" height="1000">
+          <figcaption>
+            <div class="meta">
+              <h3>Stadtpark</h3>
+              <small>Natur • Park</small>
+            </div>
+          </figcaption>
         </figure>
-        <figure class="gallery-item" role="listitem" data-title="Klassenzimmer" data-fullimg="Assets/Images/2026-02-22_12.05.50.png">
-          <img src="Assets/Images/2026-02-22_12.05.50.png" alt="Klassenzimmer mit Schülern" loading="lazy" width="400" height="300">
-          <figcaption>Klassenzimmer</figcaption>
+
+        <figure class="gallery-item" role="listitem" data-category="architecture" data-title="Museum Fassade" data-fullimg="https://picsum.photos/id/1043/1600/1000">
+          <img src="https://picsum.photos/id/1043/800/1100" alt="Museum" loading="lazy" width="800" height="1100">
+          <figcaption>
+            <div class="meta">
+              <h3>Museum</h3>
+              <small>Architektur • Museum</small>
+            </div>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-item" role="listitem" data-category="events" data-title="Kleiner Marktplatz" data-fullimg="https://picsum.photos/id/1056/1600/1000">
+          <img src="https://picsum.photos/id/1056/800/900" alt="Marktplatz" loading="lazy" width="800" height="900">
+          <figcaption>
+            <div class="meta">
+              <h3>Marktplatz</h3>
+              <small>Events • Markt</small>
+            </div>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-item" role="listitem" data-category="architecture" data-title="Brücke über den Fluss" data-fullimg="https://picsum.photos/id/1062/1600/1000">
+          <img src="https://picsum.photos/id/1062/800/900" alt="Brücke" loading="lazy" width="800" height="900">
+          <figcaption>
+            <div class="meta">
+              <h3>Brücke</h3>
+              <small>Architektur • Brücke</small>
+            </div>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-item" role="listitem" data-category="nature" data-title="Abendlicher Schulhof" data-fullimg="https://picsum.photos/id/1074/1600/1000">
+          <img src="https://picsum.photos/id/1074/800/950" alt="Schulhof" loading="lazy" width="800" height="950">
+          <figcaption>
+            <div class="meta">
+              <h3>Schulhof</h3>
+              <small>Natur • Schulhof</small>
+            </div>
+          </figcaption>
         </figure>
       </div>
     </section>
@@ -84,7 +150,25 @@
     </div>
   </main>
 
+  <footer class="site-footer">
+    <div class="container">
+      <div class="brand">
+        <img src="Assets/Images/logo.png" alt="Bayville Logo" width="40" height="40">
+        <div>
+          <strong>Bayville</strong>
+          <div><small>Fiktive Stadt — Demo</small></div>
+        </div>
+      </div>
+      <nav aria-label="Footer navigation">
+        <a href="index.html">Start</a>
+        <a href="gallery.html">Galerie</a>
+        <a href="events.html">Veranstaltungen</a>
+        <a href="contact.html">Kontakt</a>
+      </nav>
+    </div>
+  </footer>
+
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-o9N1j8wF4g1sVbF7m1K/0rM6Qe3z4G6g9q2G6zYkL2o=" crossorigin="" defer></script>
-  <script src="../js/main.js" defer></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

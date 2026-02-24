@@ -33,83 +33,34 @@ document.addEventListener('DOMContentLoaded',function(){
     }catch(e){ }
   });
 
-  // mobile menu toggle
-  const menuToggles = document.querySelectorAll('.menu-toggle');
-  menuToggles.forEach(btn => {
-    btn.addEventListener('click', ()=>{
-      const sidebar = document.querySelector('.sidebar');
-      const nav = sidebar.querySelector('.main-nav');
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!expanded));
-      nav.classList.toggle('show');
+  // Sidebar: restore interactive toggle + submenu handling
+  (function sidebarInit(){
+    const sidebar = document.querySelector('.sidebar');
+    const toggle = document.querySelectorAll('.sidebar-toggle');
+    const closeBtn = document.getElementById('sidebar-close');
+    if(!sidebar) return;
+
+    toggle.forEach(btn => btn.addEventListener('click', function(e){
+      e.preventDefault();
+      const opening = !sidebar.classList.contains('open');
+      sidebar.classList.toggle('open', opening);
+      // set aria on toggle and sidebar
+      btn.setAttribute('aria-expanded', String(opening));
+      sidebar.setAttribute('aria-hidden', String(!opening));
+    }));
+
+    if(closeBtn){ closeBtn.addEventListener('click', function(){ sidebar.classList.remove('open'); sidebar.setAttribute('aria-hidden','true'); toggle.forEach(t=> t.setAttribute('aria-expanded','false')); }); }
+
+    // close when clicking outside on mobile
+    document.addEventListener('click', function(ev){ if(!sidebar.classList.contains('open')) return; if(!sidebar.contains(ev.target) && !Array.from(toggle).some(t=>t.contains(ev.target))){ sidebar.classList.remove('open'); sidebar.setAttribute('aria-hidden','true'); toggle.forEach(t=> t.setAttribute('aria-expanded','false')); } });
+
+    // submenu toggles
+    document.querySelectorAll('.sidebar ul li').forEach(function(li){
+      const submenu = li.querySelector('ul');
+      const link = li.querySelector(':scope > a');
+      if(submenu && link){ li.classList.add('has-sub'); submenu.style.display = 'none'; link.addEventListener('click', function(e){ e.preventDefault(); const open = li.classList.toggle('open'); submenu.style.display = open ? 'block' : 'none'; }); }
     });
-  });
-
-  // --- User slide-in sidebar JS ---
-  const sidebarToggle = document.getElementById('sidebar-toggle');
-  const sidebarEl = document.getElementById('sidebar');
-  const sidebarClose = document.getElementById('sidebar-close');
-  if(sidebarToggle && sidebarEl){
-    // Toggle open/close and switch icon between ☰ and ✕
-    sidebarToggle.addEventListener('click', function(e){
-      e.stopPropagation();
-      const opening = !sidebarEl.classList.contains('open');
-      sidebarEl.classList.toggle('open');
-      document.body.classList.toggle('sidebar-open');
-      // update toggle icon and aria-label
-      sidebarToggle.textContent = opening ? '✕' : '☰';
-      sidebarToggle.setAttribute('aria-label', opening ? 'Menü schließen' : 'Menü öffnen');
-      // hide the inside close button when using top toggle (to avoid duplicate)
-      const insideClose = document.getElementById('sidebar-close');
-      if(insideClose) insideClose.style.display = opening ? 'none' : '';
-    });
-  }
-  if(sidebarClose && sidebarEl){
-    sidebarClose.addEventListener('click', function(e){
-      e.stopPropagation();
-      sidebarEl.classList.remove('open');
-      document.body.classList.remove('sidebar-open');
-      // reset top toggle icon
-      if(sidebarToggle){ sidebarToggle.textContent = '☰'; sidebarToggle.setAttribute('aria-label','Menü öffnen'); }
-      sidebarClose.style.display = '';
-    });
-  }
-
-  // Close sidebar when clicking outside
-  document.addEventListener('click', function(event){
-    if(!sidebarEl) return;
-    const toggle = document.getElementById('sidebar-toggle');
-    if (!sidebarEl.contains(event.target) && toggle && !toggle.contains(event.target)){
-      sidebarEl.classList.remove('open');
-      document.body.classList.remove('sidebar-open');
-      if(sidebarToggle){ sidebarToggle.textContent = '☰'; sidebarToggle.setAttribute('aria-label','Menü öffnen'); }
-      const insideClose = document.getElementById('sidebar-close'); if(insideClose) insideClose.style.display = '';
-    }
-  });
-
-  // Mark items that have submenus and collapse them by default
-  document.querySelectorAll('.sidebar ul li').forEach(function(li){
-    const submenu = li.querySelector('ul');
-    if(submenu){
-      li.classList.add('has-sub');
-      // ensure collapsed at start
-      submenu.style.display = 'none';
-      li.classList.remove('open');
-    }
-  });
-
-  // Sidebar dropdowns: toggle nested ULs
-  document.querySelectorAll('.sidebar ul li').forEach(function(li){
-    const submenu = li.querySelector('ul');
-    const mainLink = li.querySelector(':scope > a');
-    if(submenu && mainLink){
-      mainLink.addEventListener('click', function(e){
-        e.preventDefault();
-        const opened = li.classList.toggle('open');
-        submenu.style.display = opened ? 'block' : 'none';
-      });
-    }
-  });
+  })();
 
   // Initialize Leaflet map on pages that include #map using inline `PLACES` array (no JSON fetch)
   (function initMap(){
@@ -153,24 +104,37 @@ document.addEventListener('DOMContentLoaded',function(){
     const lbPrev = lightbox ? lightbox.querySelector('.lightbox-prev') : null;
 
     let current = -1;
-    const SCORE_KEY = 'galleryScore_v1';
-    const COLLECTED_KEY = 'galleryCollected_v1';
-    const collected = new Set(JSON.parse(localStorage.getItem(COLLECTED_KEY) || '[]'));
 
+    // --- Filter-Buttons & Galerie-Suche ---
+    const filterBtns = Array.from(document.querySelectorAll('.filter'));
+    const gallerySearch = document.getElementById('gallerySearch');
+    let activeFilter = '*';
 
-
-    function addScore(amount, opts){
-      const prev = loadScore();
-      const next = prev + amount;
-      saveScore(next);
-      if(opts && opts.el){
-        const plus = document.createElement('div'); plus.className = 'floating-plus'; plus.textContent = (amount>0?'+':'')+amount;
-        opts.el.appendChild(plus);
-        setTimeout(()=> plus.remove(), 900);
-      }
+    function applyFilters(){
+      const q = gallerySearch ? gallerySearch.value.trim().toLowerCase() : '';
+      gallery.forEach(fig => {
+        const title = (fig.getAttribute('data-title') || fig.querySelector('figcaption')?.textContent || '').toLowerCase();
+        const cat = (fig.getAttribute('data-category') || '').toLowerCase();
+        const matchesFilter = activeFilter === '*' || (cat && cat.indexOf(activeFilter) !== -1);
+        const matchesSearch = q === '' || title.indexOf(q) !== -1;
+        if(matchesFilter && matchesSearch){ fig.classList.remove('gallery-filter-hidden'); } else { fig.classList.add('gallery-filter-hidden'); }
+      });
     }
 
-    // clickable gallery items -> lightbox + score + press feedback
+    if(filterBtns.length){
+      filterBtns.forEach(btn => btn.addEventListener('click', function(){
+        filterBtns.forEach(b=>b.classList.remove('active'));
+        this.classList.add('active');
+        activeFilter = this.getAttribute('data-filter') || '*';
+        applyFilters();
+      }));
+    }
+
+    if(gallerySearch){
+      gallerySearch.addEventListener('input', function(){ applyFilters(); });
+    }
+
+    // clickable gallery items -> lightbox + press feedback
     gallery.forEach((fig, idx)=>{
       fig.setAttribute('tabindex','0');
       fig.addEventListener('click', function(e){ openLightbox(idx, e.currentTarget); });
@@ -195,13 +159,8 @@ document.addEventListener('DOMContentLoaded',function(){
       lightbox.setAttribute('aria-hidden','false');
       lbClose?.focus();
 
-      // scoring: only once per unique image
+      // open image in lightbox (no scoring)
       const id = title || url || String(idx);
-      if(!collected.has(id)){
-        collected.add(id);
-        localStorage.setItem(COLLECTED_KEY, JSON.stringify(Array.from(collected)));
-        addScore(10, {el: sourceEl || fig});
-      }
     }
 
     function openLightboxFromURL(url, title){
@@ -212,10 +171,8 @@ document.addEventListener('DOMContentLoaded',function(){
       lbImg.src = url; lbImg.alt = title || ''; if(lbTitle) lbTitle.textContent = title || ''; if(lbCounter) lbCounter.textContent = '—'; lightbox.setAttribute('aria-hidden','false'); lbClose?.focus();
     }
 
-    // Expose for map markers
+    // Expose for map markers (opens related gallery image if provided)
     window.galleryMarkerClick = function(m){
-      // marker gives small reward; if marker includes image, open it
-      addScore(5);
       if(m.fullimg){ openLightboxFromURL(m.fullimg, m.title); }
     };
 
@@ -253,7 +210,7 @@ document.addEventListener('DOMContentLoaded',function(){
       if(e.key === 'ArrowLeft') return prev();
     });
 
-    updateScoreBadge();
+    // no score badge for city site
   })();
 
   // News/Events are static HTML in the pages (no JS rendering)

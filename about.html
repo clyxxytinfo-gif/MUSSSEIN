@@ -11,40 +11,116 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
-  <img src="Assets/Images/logo.svg" class="site-logo" alt="Logo">
-  <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Menü öffnen">☰</button>
-
-  <div class="sidebar" id="sidebar" aria-hidden="true">
-    <button class="sidebar-close" id="sidebar-close" aria-label="Menü schließen">✕</button>
+  <header class="site-header">
+    <a href="index.html"><img src="Assets/Images/logo.svg" class="site-logo" alt="Logo"></a>
+    <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Menü öffnen">☰</button>
+  </header>
+  <nav class="sidebar" id="sidebar" aria-hidden="true" aria-label="Hauptnavigation">
+    <button class="sidebar-close" id="sidebar-close" aria-label="Navigation schließen">✕</button>
+    <div class="logo">Bayville</div>
     <ul>
-        <li><a href="#">Schule/Leitung</a>
-            <ul>
-                <li><a href="pages/schulleitung.html">Schulleiter</a></li>
-                <li><a href="pages/schulgebäude.html">Schulgebäude</a></li>
-            </ul>
-        </li>
-        <li><a href="#">Politik</a>
-            <ul>
-                <li><a href="pages/schulrat.html">Schulrat</a></li>
-            </ul>
-        </li>
-        <li><a href="pages/daten.html">Daten über die Schule</a></li>
-        <li><a href="#">Bauen und Wohnen</a></li>
-        <li><a href="pages/galerie.html">Galerie</a></li>
-        <li><a href="#">Tourismus</a></li>
-        <li><a href="#">Mobilität</a></li>
-        <li><a href="pages/dienstleistungen.html">Dienstleistungen von A–Z</a></li>
-        <li><a href="pages/veranstaltungen.html">Veranstaltungen</a></li>
-        <li><a href="pages/kultur.html">Schulleben und Kultur</a></li>
-        <li><a href="pages/karriere.html">Karriere</a></li>
+      <li><a href="index.html">Start</a></li>
+      <li><a href="gallery.html">Galerie</a></li>
+      <li><a href="events.html">Veranstaltungen</a></li>
+      <li><a href="news.html">Aktuelles</a></li>
+      <li class="has-sub"><a href="#">Verwaltung</a>
+        <ul class="sub">
+          <li><a href="dienstleistungen.html">Dienstleistungen</a></li>
+          <li><a href="bauen-wohnen.html">Bauen &amp; Wohnen</a></li>
+        </ul>
+      </li>
+      <li><a href="daten-stadt.html">Daten</a></li>
+      <li><a href="mobilitaet.html">Mobilität</a></li>
+      <li><a href="tourismus.html">Tourismus</a></li>
+      <li><a href="karriere.html">Karriere</a></li>
+      <li><a href="politik.html">Politik</a></li>
+      <li><a href="contact.html">Kontakt</a></li>
     </ul>
-  </div>
+  </nav>
 
-    <main id="main" class="main-content container" role="main">
-      <h2>Über die Stadt</h2>
-      <p>Hier kannst du deine Informationen zur fiktiven Stadt einfügen: Geschichte, Einwohnerzahlen, Besonderheiten.</p>
+    <main id="main" class="main-content" role="main">
+      <div class="container">
+        <h2>Über die Stadt</h2>
+        <p>Willkommen in Bayville — eine lebendige und wachsende Stadt mit einer reichen Geschichte und einer lebendigen Zukunft.</p>
+
+        <section class="about-section">
+          <h3>📖 Geschichte</h3>
+          <p>Bayville wurde 1835 gegründet und war ursprünglich ein kleines Handelszentrum an der Flussüberquerung. Über die Jahrzehnte entwickelte sich die Stadt zu einem wichtigen Wirtschaftszentrum. Die historische Altstadt mit ihren eleganten Fassaden zeugt von dieser reichen Vergangenheit.</p>
+          <p>Heute ist Bayville eine moderne Stadt, die ihre historischen Wurzeln respektiert und bewahrt, während sie sich weiterentwickelt.</p>
+        </section>
+
+        <section class="about-section">
+          <h3>👥 Zahlen &amp; Fakten</h3>
+          <div class="card-grid">
+            <div class="card">
+              <h4>Einwohnerzahl</h4>
+              <p style="font-size: 1.35rem; color: var(--accent-dark); font-weight: 700;">245.000</p>
+              <p>Bevölkerung der Stadtregion</p>
+            </div>
+            <div class="card">
+              <h4>Gegründet</h4>
+              <p style="font-size: 1.35rem; color: var(--accent-dark); font-weight: 700;">1835</p>
+              <p>Noch aktiv und wachsend</p>
+            </div>
+            <div class="card">
+              <h4>Fläche</h4>
+              <p style="font-size: 1.35rem; color: var(--accent-dark); font-weight: 700;">127 km²</p>
+              <p>Stadtgebiet und Umland</p>
+            </div>
+            <div class="card">
+              <h4>Grünanlagen</h4>
+              <p style="font-size: 1.35rem; color: var(--accent-dark); font-weight: 700;">28%</p>
+              <p>Parks und Naturschutzgebiete</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="about-section">
+          <h3>🏆 Besonderheiten</h3>
+          <ul style="line-height: 1.8; margin-left: 1.5rem;">
+            <li><strong>Der Botanische Garten:</strong> Ein 35 Hektar großes Paradies mit über 10.000 Pflanzenarten</li>
+            <li><strong>Kulturelles Zentrum:</strong> Drei Museen, eine Oper und zahlreiche Galerien</li>
+            <li><strong>Der Flusspark:</strong> Ein wunderschöner ufernaher Park mit Radwegen und Restaurants</li>
+            <li><strong>Nachhaltige Stadt:</strong> Leader in erneuerbaren Energien und grüner Mobilität</li>
+            <li><strong>Kreativszene:</strong> Lebendige Kunstszene mit regelmäßigen Ausstellungen und Performances</li>
+          </ul>
+        </section>
+
+        <section class="about-section">
+          <h3>🌱 Nachhaltigkeit</h3>
+          <p>Bayville engagiert sich stark für umweltfreundliche Entwicklung. Die Stadt hat sich zum Ziel gesetzt, bis 2040 CO₂-neutral zu sein. Dazu gehören:</p>
+          <ul style="line-height: 1.8; margin-left: 1.5rem;">
+            <li>Erneuerbare Energieanlagen auf 40% der öffentlichen Gebäude</li>
+            <li>Kostenlose öffentliche Verkehrsmittel in der Innenstadt</li>
+            <li>Umfangreiche Bäume- und Begrünungsprogramme</li>
+            <li>Hochwertige Recycling- und Abfallmanagement-Systeme</li>
+          </ul>
+        </section>
+
+        <section class="about-section">
+          <h3>✉️ Interessiert?</h3>
+          <p>Du möchtest mehr über Bayville erfahren oder die Stadt besuchen? <a href="contact.html">Kontaktiere uns</a> oder besuche die <a href="gallery.html">Galerie</a> mit Bildern unserer Stadt.</p>
+        </section>
+      </div>
+
+      <footer class="site-footer">
+        <div class="container">
+          <div class="brand">
+            <img src="Assets/Images/logo.png" alt="Bayville Logo" width="48" height="48">
+            <div>
+              <strong>Bayville</strong>
+              <div><small>Fiktive Stadt — Demo</small></div>
+            </div>
+          </div>
+          <nav aria-label="Footer navigation">
+            <a href="index.html">Start</a>
+            <a href="gallery.html">Galerie</a>
+            <a href="events.html">Veranstaltungen</a>
+            <a href="contact.html">Kontakt</a>
+          </nav>
+        </div>
+      </footer>
     </main>
-  </div>
 
   <script src="js/main.js"></script>
 </body>
