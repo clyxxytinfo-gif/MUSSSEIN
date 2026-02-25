@@ -37,6 +37,27 @@ body {
 
 html { overflow-x: hidden; }
 
+/* Ensure layout fills the viewport and footer stays pinned to bottom
+   - Makes body a column flex container so pages always reach the bottom
+   - Ensures `main` grows to fill available space and the footer is pushed down */
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main#main, main.main-content {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.site-footer {
+  margin-top: auto;
+}
+
 .container {
   max-width: 1000px;
   margin: 0 auto;
@@ -777,6 +798,7 @@ textarea:focus {
 .gallery-section { padding: 1.25rem 0 2rem; }
 .gallery-toolbar { display:flex; justify-content:space-between; gap:1rem; align-items:center; margin-bottom:1rem; flex-wrap:wrap }
 .gallery-search input { padding: .5rem .75rem; border-radius: 10px; border: 2px solid rgba(45,126,102,0.12); min-width:180px }
+
 .filters { display:flex; gap:.5rem; align-items:center }
 .filters .filter { background: transparent; border: 2px solid rgba(45,126,102,0.12); color: var(--accent-dark); padding: .45rem .7rem; border-radius: 999px; cursor: pointer; font-weight:600 }
 .filters .filter.active { background: var(--accent); color: #fff; border-color: rgba(26,77,58,0.9) }
@@ -803,4 +825,36 @@ textarea:focus {
 
 @media (max-width: 1080px) { .gallery-grid.masonry { column-count: 2 } }
 @media (max-width: 720px) { .gallery-grid.masonry { column-count: 1 } .gallery-toolbar { gap:.5rem } }
+
+/* --- Layout-Varianten (A / B) --- */
+/* Variante A: Klassisches Content-Layout mit dezenter Kachel-Optik */
+.variant-a body, .variant-a {
+  /* keine globalen Veränderungen am root, Styles greifen über Selektoren */
+}
+.variant-a .container {
+  max-width: 920px;
+  padding: 1.75rem;
+}
+.variant-a .main-content { padding: 2rem 1.25rem 3rem; }
+.variant-a .about-section, .variant-a .card, .variant-a .contact-info {
+  border-radius: 18px;
+  border-width: 2px;
+}
+.variant-a .site-header { backdrop-filter: blur(8px); }
+
+/* Variante B: Luftiges, bildbetontes Layout mit kühlerer Akzentfarbe */
+.variant-b {
+  --accent: #2b5ea8;
+  --accent-light: #4e83d1;
+  --accent-dark: #183e6b;
+  background: linear-gradient(180deg, #f6f9ff 0%, #eef4ff 100%);
+}
+.variant-b .container { max-width: 1100px; padding: 2.25rem; }
+.variant-b .hero { min-height: 70vh; background-position: center top; }
+.variant-b .card { background: linear-gradient(180deg, #ffffff, #f7fbff); border-color: rgba(43,94,168,0.12) }
+.variant-b .site-footer { border-top-color: rgba(43,94,168,0.12) }
+
+/* Utility: wenn body die Klasse variant-* trägt */
+body.variant-a .container, body.variant-b .container { transition: all .18s ease }
+
 

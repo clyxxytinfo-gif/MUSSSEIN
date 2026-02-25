@@ -1,4 +1,5 @@
 // Simple JS: search filtering and contact form stub
+// Simple JS: search filtering and contact form stub
 document.addEventListener('DOMContentLoaded',function(){
   const search = document.getElementById('searchInput');
   if(search){
