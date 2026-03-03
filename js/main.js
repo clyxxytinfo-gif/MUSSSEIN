@@ -252,5 +252,37 @@ document.addEventListener('DOMContentLoaded',function(){
     });
   })();
 
+  // Modal popup for more-link elements
+  (function initModal(){
+    const modal = document.getElementById('modal');
+    if(!modal) return;
+    const body = modal.querySelector('.modal-body');
+    const closeBtn = modal.querySelector('.modal-close');
+
+    function open(html){
+      body.innerHTML = html;
+      modal.setAttribute('aria-hidden','false');
+      modal.classList.add('open');
+      closeBtn.focus();
+    }
+    function close(){
+      modal.setAttribute('aria-hidden','true');
+      modal.classList.remove('open');
+    }
+
+    document.addEventListener('click', function(e){
+      const link = e.target.closest && e.target.closest('.more-link');
+      if(!link) return;
+      e.preventDefault();
+      const article = link.closest('article');
+      if(!article) return;
+      open(article.innerHTML);
+    });
+
+    closeBtn.addEventListener('click', close);
+    modal.addEventListener('click', function(e){ if(e.target === modal) close(); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && modal.getAttribute('aria-hidden')==='false') close(); });
+  })();
+
   // News/Events are static HTML in the pages (no JS rendering)
 });

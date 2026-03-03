@@ -794,74 +794,6 @@ textarea:focus {
   }
 }
 
-/* --- Neue Galerie-Design-Styles --- */
-.gallery-section { padding: 1.25rem 0 2rem; }
-.gallery-toolbar { display:flex; justify-content:space-between; gap:1rem; align-items:center; margin-bottom:1rem; flex-wrap:wrap }
-.gallery-search input { padding: .5rem .75rem; border-radius: 10px; border: 2px solid rgba(45,126,102,0.12); min-width:180px }
-
-/* Read-more toggle */
-.more-content { display: none; margin-top: 0.75rem; color: var(--text-secondary); }
-.more-open .more-content { display: block; }
-.read-more-btn { margin-top: 0.6rem; padding: 0.45rem 0.9rem; font-size: 0.95rem; background: transparent; border: 2px solid rgba(45,126,102,0.12); color: var(--accent-dark); border-radius: 8px; cursor: pointer; }
-.read-more-btn:hover { background: rgba(45,126,102,0.06); }
-
-.filters { display:flex; gap:.5rem; align-items:center }
-.filters .filter { background: transparent; border: 2px solid rgba(45,126,102,0.12); color: var(--accent-dark); padding: .45rem .7rem; border-radius: 999px; cursor: pointer; font-weight:600 }
-.filters .filter.active { background: var(--accent); color: #fff; border-color: rgba(26,77,58,0.9) }
-
-/* Masonry-style grid using CSS columns */
-.gallery-grid.masonry { column-gap: 1rem; column-fill: balance; column-count: 3 }
-.gallery-grid.masonry .gallery-item { display: inline-block; width: 100%; margin: 0 0 1rem; break-inside: avoid; position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 30px rgba(8,12,8,0.06); transition: transform .22s ease, box-shadow .22s ease }
-.gallery-grid.masonry .gallery-item img { display:block; width:100%; height:auto; transition: transform .35s ease }
-.gallery-grid.masonry .gallery-item:hover { transform: translateY(-6px) }
-.gallery-grid.masonry .gallery-item:hover img { transform: scale(1.03) }
-.gallery-grid.masonry .gallery-item figcaption { position: absolute; left:0; right:0; bottom:0; padding: .9rem 1rem; background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.45) 60%); color: #fff; transform: translateY(100%); transition: transform .22s ease }
-.gallery-grid.masonry .gallery-item:hover figcaption { transform: translateY(0) }
-.gallery-grid.masonry .meta h3 { margin: 0 0 .15rem; font-size: 1.05rem }
-.gallery-grid.masonry .meta small { color: rgba(255,255,255,0.85) }
-
-/* Preview grid on index page */
-.gallery-preview .gallery-grid.preview { column-count: initial; display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: .75rem }
-.gallery-preview .gallery-item { border-radius: 10px; overflow: hidden; box-shadow: 0 8px 24px rgba(8,12,8,0.06); transition: transform .18s ease }
-.gallery-preview .gallery-item img { width:100%; height:120px; object-fit:cover }
-.gallery-preview .gallery-item:hover { transform: translateY(-6px) }
-
-/* hidden state used by filters/search */
-.gallery-filter-hidden { display: none !important }
-
-@media (max-width: 1080px) { .gallery-grid.masonry { column-count: 2 } }
-@media (max-width: 720px) { .gallery-grid.masonry { column-count: 1 } .gallery-toolbar { gap:.5rem } }
-
-/* --- Layout-Varianten (A / B) --- */
-/* Variante A: Klassisches Content-Layout mit dezenter Kachel-Optik */
-.variant-a body, .variant-a {
-  /* keine globalen Veränderungen am root, Styles greifen über Selektoren */
-}
-.variant-a .container {
-  max-width: 920px;
-  padding: 1.75rem;
-}
-.variant-a .main-content { padding: 2rem 1.25rem 3rem; }
-.variant-a .about-section, .variant-a .card, .variant-a .contact-info {
-  border-radius: 18px;
-  border-width: 2px;
-}
-.variant-a .site-header { backdrop-filter: blur(8px); }
-
-/* Variante B: Luftiges, bildbetontes Layout mit kühlerer Akzentfarbe */
-.variant-b {
-  --accent: #2b5ea8;
-  --accent-light: #4e83d1;
-  --accent-dark: #183e6b;
-  background: linear-gradient(180deg, #f6f9ff 0%, #eef4ff 100%);
-}
-.variant-b .container { max-width: 1100px; padding: 2.25rem; }
-.variant-b .hero { min-height: 70vh; background-position: center top; }
-.variant-b .card { background: linear-gradient(180deg, #ffffff, #f7fbff); border-color: rgba(43,94,168,0.12) }
-.variant-b .site-footer { border-top-color: rgba(43,94,168,0.12) }
-
-/* Utility: wenn body die Klasse variant-* trägt */
-body.variant-a .container, body.variant-b .container { transition: all .18s ease }
 
 /* Card Placeholder Image */
 .card-image {
@@ -887,4 +819,62 @@ body.variant-a .container, body.variant-b .container { transition: all .18s ease
   font-size: 0.85rem;
 }
 
+/* utility for small text */
+.small { font-size: 0.9rem; }
+.muted { color: #666; }
+.secondary-text { color: var(--text-secondary); }
+
+/* modify card-image heights */
+.card-image.large { height: 200px; }
+
+/* caption sizes for placeholders */
+.caption-md { font-size: 0.9rem; }
+.caption-sm { font-size: 0.85rem; }
+
+/* list utilities */
+.list-default { font-size:0.95rem; margin-left:1rem; line-height:1.6; }
+.list-alt { line-height:1.8; margin-left:1.5rem; }
+
+/* statistic number styling */
+.stat-number { font-size: 1.35rem; color: var(--accent-dark); font-weight: 700; }
+
+/* newsletter form section */
+.newsletter-section { margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #ffffff 0%, #f8faf7 100%); border: 2px solid rgba(45, 126, 102, 0.2); border-radius: 16px; }
+.newsletter-form { display: flex; gap: 0.5rem; max-width: 400px; }
+.newsletter-input { flex: 1; }
+
+/* modal popup */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+}
+.modal.open {
+  display: flex;
+}
+.modal-content {
+  background: #ffffff;
+  padding: 1.5rem;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+  position: relative;
+  border-radius: 8px;
+}
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* re-use newsletter style for promo section */
+.promo-section { margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #ffffff 0%, #f8faf7 100%); border: 2px solid rgba(45, 126, 102, 0.2); border-radius: 16px; }
 
