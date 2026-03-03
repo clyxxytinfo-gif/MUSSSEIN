@@ -863,4 +863,28 @@ textarea:focus {
 /* Utility: wenn body die Klasse variant-* trägt */
 body.variant-a .container, body.variant-b .container { transition: all .18s ease }
 
+/* Card Placeholder Image */
+.card-image {
+  background: #e0e0e0;
+  height: 150px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  margin-bottom: 15px;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  display: none;
+}
+
+.card-image span {
+  font-size: 0.85rem;
+}
+
 
