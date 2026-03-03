@@ -214,5 +214,44 @@ document.addEventListener('DOMContentLoaded',function(){
     // no score badge for city site
   })();
 
+  // Read-more / Mehr lesen: delegated toggles for elements with .read-more-btn
+  (function initReadMore(){
+    function toggle(btn){
+      const container = btn.closest('.detail, .card, .events-item, article') || btn.parentElement;
+      if(!container) return;
+      const more = container.querySelector('.more-content');
+      if(!more) return;
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      if(expanded){
+        btn.setAttribute('aria-expanded','false');
+        btn.textContent = 'Mehr lesen';
+        container.classList.remove('more-open');
+        more.setAttribute('aria-hidden','true');
+      } else {
+        btn.setAttribute('aria-expanded','true');
+        btn.textContent = 'Weniger';
+        container.classList.add('more-open');
+        more.setAttribute('aria-hidden','false');
+      }
+    }
+
+    document.addEventListener('click', function(e){
+      const btn = e.target.closest && e.target.closest('.read-more-btn');
+      if(!btn) return;
+      e.preventDefault();
+      toggle(btn);
+    });
+
+    // allow keyboard activation (Enter/Space) when button is focused
+    document.addEventListener('keydown', function(e){
+      const active = document.activeElement;
+      if(!active) return;
+      if(active.classList && active.classList.contains('read-more-btn') && (e.key === 'Enter' || e.key === ' ')){
+        e.preventDefault();
+        toggle(active);
+      }
+    });
+  })();
+
   // News/Events are static HTML in the pages (no JS rendering)
 });

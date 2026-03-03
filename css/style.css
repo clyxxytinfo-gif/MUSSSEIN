@@ -799,6 +799,12 @@ textarea:focus {
 .gallery-toolbar { display:flex; justify-content:space-between; gap:1rem; align-items:center; margin-bottom:1rem; flex-wrap:wrap }
 .gallery-search input { padding: .5rem .75rem; border-radius: 10px; border: 2px solid rgba(45,126,102,0.12); min-width:180px }
 
+/* Read-more toggle */
+.more-content { display: none; margin-top: 0.75rem; color: var(--text-secondary); }
+.more-open .more-content { display: block; }
+.read-more-btn { margin-top: 0.6rem; padding: 0.45rem 0.9rem; font-size: 0.95rem; background: transparent; border: 2px solid rgba(45,126,102,0.12); color: var(--accent-dark); border-radius: 8px; cursor: pointer; }
+.read-more-btn:hover { background: rgba(45,126,102,0.06); }
+
 .filters { display:flex; gap:.5rem; align-items:center }
 .filters .filter { background: transparent; border: 2px solid rgba(45,126,102,0.12); color: var(--accent-dark); padding: .45rem .7rem; border-radius: 999px; cursor: pointer; font-weight:600 }
 .filters .filter.active { background: var(--accent); color: #fff; border-color: rgba(26,77,58,0.9) }
